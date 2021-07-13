@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+
+   <table>
+      <thead>
+        <tr>
+          <th scope="col"> Transaction Type </th>
+          <th scope="col"> Company </th>
+          <th scope="col"> Price </th>
+          <th scope="col"> Shares </th>
+          <th scope="col"> Date </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for thing in things %}
+        <tr>
+          <th scope="row">
+              {{ "buy" if thing["shares"] > 0 else "sell" }}
+          </th>
+          <td>  {{ thing["company"] }}  </td>
+          <td>  {{ thing["price"] }}  </td>
+          <td>  {{ thing["shares"]|abs }}  </td>
+          <td>  {{ thing["date"] }}  </td>
+        </tr>
+        {% endfor %}
+
+      </body>
+    </table>
+
+{% endblock %}
