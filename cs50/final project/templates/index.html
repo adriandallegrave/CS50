@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+
+{% block main %}
+
+   <table>
+      <thead>
+        <tr>
+            <th scope="col"> Status </th>
+            <th scope="col"> Subject </th>
+            <th scope="col"> Topic </th>
+            <th scope="col"> Minutes left </th>
+            <th scope="col"> Minutes initial </th>
+            <th scope="col"> Minutes done </th>
+            <th scope="col"> Date first created </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for thing in things %}
+        <tr>
+          <th scope="row">
+              {{ "Incomplete" if thing["minleft"] > 0 else "done!" }}
+          </th>
+          <td>  {{ thing["subject"] }}  </td>
+          <td>  {{ thing["topic"] }}  </td>
+          <td>  {{ thing["minleft"] }}  </td>
+          <td>  {{ thing["mininitial"] }}  </td>
+          <td>  {{ thing["mindone"] }}  </td>
+          <td>  {{ thing["date"] }}  </td>
+        </tr>
+        {% endfor %}
+      </body>
+    </table>
+
+{% endblock %}

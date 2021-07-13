@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Mark as done
+{% endblock %}
+
+
+{% block main %}
+
+   <table>
+      <thead>
+        <tr>
+            <th scope="col"> Type </th>
+            <th scope="col"> Subject </th>
+            <th scope="col"> Topic </th>
+            <th scope="col"> Minutes left </th>
+            <th scope="col"> Minutes initial </th>
+            <th scope="col"> Minutes done </th>
+            <th scope="col"> Date </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for thing in things %}
+        <tr>
+          <th scope="row">
+              {{ "Incomplete" if thing["minleft"] > 0 else "done!" }}
+          </th>
+          <td>  {{ thing["subject"] }}  </td>
+          <td>  {{ thing["topic"] }}  </td>
+          <td>  {{ thing["minleft"] }}  </td>
+          <td>  {{ thing["mininitial"] }}  </td>
+          <td>  {{ thing["mindone"] }}  </td>
+          <td>  {{ thing["date"] }}  </td>
+        </tr>
+        {% endfor %}
+      </body>
+    </table>
+
+    <form action="/done" method="post">
+        <select name="subject">
+            <option disabled selected value="">Subject</option>
+            {% for subject in subjects %}
+                <option value="{{ subject }}">{{ subject }}</option>
+            {% endfor %}
+        </select>
+        <select name="topic">
+            <option disabled selected value="">Topic</option>
+            {% for topic in topics %}
+                <option value="{{ topic }}">{{ topic }}</option>
+            {% endfor %}
+        </select>
+
+        <input autocomplete="off" autofocus name="minutes" placeholder="How many minutes" type="text">
+        <button class="btn btn-secondary" type="submit">Mark as done!</button>
+    </form>
+
+{% endblock %}

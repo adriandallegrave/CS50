@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Add subject
+{% endblock %}
+
+
+{% block main %}
+
+    <form action="/add" method="post">
+        <select name="subject">
+            <option disabled selected value="">Subject</option>
+            {% for subject in subjects %}
+                <option value="{{ subject }}">{{ subject }}</option>
+            {% endfor %}
+        </select>
+        <input autocomplete="off" autofocus name="topic" placeholder="Topic" type="text">
+        <input autocomplete="off" autofocus name="minutes" placeholder="How many minutes" type="text">
+        <button class="btn btn-secondary" type="submit">Add</button>
+    </form>
+
+
+{% endblock %}

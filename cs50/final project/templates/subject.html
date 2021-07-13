@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Add subject
+{% endblock %}
+
+
+{% block main %}
+
+    <form action="/subject" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="subject" placeholder="Subject name" type="text">
+        </div>
+        <button class="btn btn-secondary" type="submit">Add</button>
+    </form>
+
+{% endblock %}
