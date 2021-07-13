@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <script>
+
+            function greet()
+            {
+                let name = document.querySelector('#name').value;
+                alert('Hello, ' + name + '!');
+            }
+
+            function listen()
+            {
+                document.querySelector('form').addEventListener('submit', greet);
+            }
+
+            document.addEventListener('DOMContentLoaded', listen);                                      //When whole tree is loaded it adds the event listener inside function listen
+
+
+
+
+        </script>
+        <title>
+            Hello, title
+        </title>
+    </head>
+    <body>
+        <form>                                                                <!-- return false so the form is not submited-->
+            <input autocomplete="off" autofocus id="name" placeholder="What's your name?" type="text">           <!-- autofocus clicks the form for you-->
+            <input type="submit" value="Greet me">
+        </form>
+    </body>
+</html>

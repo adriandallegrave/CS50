@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+
+            // TODO: Add code to check answers to questions
+
+
+
+            function wrongsoccer()
+            {
+
+                document.getElementById("football").style.background="#d9edff";
+                document.getElementById("soccer").style.background="red";
+                document.getElementById("quiditch").style.background="#d9edff";
+                document.getElementById("firstinc").style="display:";
+                document.getElementById("firstcor").style="display:none";
+
+            }
+            function wrongfootball()
+            {
+
+                document.getElementById("football").style.background="red";
+                document.getElementById("soccer").style.background="#d9edff";
+                document.getElementById("quiditch").style.background="#d9edff";
+                document.getElementById("firstinc").style="display:";
+                document.getElementById("firstcor").style="display:none";
+
+
+            }
+
+            function right()
+            {
+
+                document.getElementById("football").style.background="#d9edff";
+                document.getElementById("soccer").style.background="#d9edff";
+                document.getElementById("quiditch").style.background="green";
+                document.getElementById("firstinc").style="display:none";
+                document.getElementById("firstcor").style="display:";
+            }
+            function second()
+            {
+                let segundaresposta = document.querySelector('#dois').value;
+                if(segundaresposta == "Gryffindor" || segundaresposta == "gryffindor")
+                {
+
+                    document.getElementById("secondinc").style="display:none";
+                    document.getElementById("secondcor").style="display:";
+                    document.getElementById("dois").style.background="green";
+                }
+                else
+                {
+
+                    document.getElementById("secondinc").style="display:";
+                    document.getElementById("secondcor").style="display:none";
+                    document.getElementById("dois").style.background="red";
+                }
+            }
+            function listen()
+            {
+                document.querySelector('form').addEventListener('submit', second);
+            }
+
+            document.addEventListener('DOMContentLoaded', listen);                                      //When whole tree is loaded it adds the event listener inside function listen
+
+
+
+
+
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                <!-- TODO: Add multiple choice question here -->
+
+                <h3>What is Harry Potter's favorite sport?</h3>
+
+                <button id="football" onclick="wrongfootball()">Football</button>
+                <button id="quiditch" onclick="right()">Quiditch</button>
+                <button id="soccer" onclick="wrongsoccer()">Soccer</button>
+
+                <p id="firstcor" style="display:none">Correct!</p>
+                <p id="firstinc" style="display:none">Incorrect</p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <!-- TODO: Add free response question here -->
+
+                <h3>What is Harry Potter's house name in Hogwarts?</h3>
+                <form>                                                                <!-- return false so the form is not submited-->
+                    <input autocomplete="off" autofocus id="dois" placeholder="Answer here" type="text">           <!-- autofocus clicks the form for you-->
+                    <input type="submit" value="Check Answer">
+
+                </form>
+
+                <p id="secondcor" style="display:none">Correct!</p>
+                <p id="secondinc" style="display:none">Incorrect</p>
+
+            </div>
+
+        </div>
+    </body>
+</html>
